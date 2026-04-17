@@ -11,9 +11,11 @@ public class ContengaLetra {
 
         try (Connection conexion = DriverManager.getConnection(url, usuario, password)) {
 
+            //Pido letra
             System.out.println("Que letra quieres que contenga");
             String letra  = sc.nextLine();
 
+            //Saco los nombres de los empleados
             String sql = "SELECT * FROM EJEMPLOCONEXION WHERE nombre LIKE ?";
             PreparedStatement ps = conexion.prepareStatement(sql);
 
@@ -25,6 +27,7 @@ public class ContengaLetra {
                 String nombre  = rs.getString("nombre");
                 int salario = rs.getInt("salario");
 
+                //muestro el resultado
                 System.out.println("ID: "+id + " Nombre: "+nombre + " Salario: "+salario);
             }
 
